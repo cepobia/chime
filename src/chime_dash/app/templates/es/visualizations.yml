@@ -1,0 +1,20 @@
+new-admissions-title: Nuevas Adminisiones
+new-admissions-text: Numero previsto de admisiones **diarias** COVID-19
+
+admitted-patients-title: Pacientes admitidos (Censo)
+admitted-patients-text: Proyectado **censo** de pacientes con COVID-19, contabilizando llegadas y egresos
+
+SIR-title: Susceptible, Infectedo, y Recuperado
+SIR-text: El numero de individuos susceptibles, infectados y recuperados en la region de captacion del hospital en un momento dado
+
+download-text: Descargar CSV
+
+# Chart labels
+day: Dia
+date: Fecha
+hosp: Hospitalizado
+icu: UCI
+vent: Ventilado
+
+# Date Localization
+date-format: "%d%m%Y"

@@ -1,0 +1,28 @@
+
+/*
+------------------------------------------------------------------
+Place a link to this file in you source code before your site's
+CSS files.
+
+This will allow you to make style overrides if any of the
+Penn Medicine Masthead CSS rules conflict with those of you site.
+
+If you have questions or need assistance, contact us at
+PennMedicineWebMaster@uphs.upenn.edu
+------------------------------------------------------------------
+*/
+
+.cepobia-header {
+	background-color:   #252729	;
+}
+
+.cepobia-header__logo {
+	background-image: url(https://cepobia.com/assets/images/logos/logodark.png);
+	background-repeat: no-repeat;
+	background-size: 90%;
+	display: block;
+	height: 60px;
+	width: 150px;
+	text-indent: -999999px;
+	margin-bottom: -2px;
+}

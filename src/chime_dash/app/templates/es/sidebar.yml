@@ -1,0 +1,27 @@
+hospital_parameters: Parametros del hospital
+population: Poblacion regional
+market_share: Mercado del Hospital (%)
+current_hospitalized:  Pacientes Actualmente Hospitalizados con Covid-19 
+
+spread_parameters: Parametros de propagacion y contacto
+date_first_hospitalized: Fecha del primer caso hospitalizado (ingrese esta fecha para que CHIME calcule el tiempo de duplicacion inicial)
+doubling_time: Tiempo de duplicacion en dias (hasta hoy. Esto sobrescribe la fecha de la primera estimacion hospitalizada)
+relative_contact_rate: Distanciamiento social (% de reduccion en el contacto social en el futuro)
+
+severity_parameters: Parametros de severidad
+hospitalized_rate: Tasa de hospitalizacion (% del total de infecciones)
+icu_rate: UCI (% del total de infecciones)
+ventilated_rate: Ventilado (% del total de infecciones)
+infectious_days: Dias infecciosos
+hospitalized_los: Estancia promedio de la hospitalizacion (en dias)
+icu_los: Promedio de dias en UCI
+ventilated_los: Promedio de dias en ventilador
+
+display_parameters: Parametros de viualizacion
+n_days: Número de dias para proyectar
+current_date: Fecha actual (el valor predeterminado es hoy)
+max_y_axis: Fije el eje Y en los gráficos 
+max_y_axis_value: Valor maximo del eje y (dejar en blanco para ningun valor maximo)
+show_tables: Mostrar tablas con datos
+show_tool_details: Mostrar mas informacion sobre esta herramienta
+show_additional_projections: Mostrar proyecciones adicionales

@@ -1,0 +1,8 @@
+infected-v-revovered-title: El numero de individuos infectados y recuperados en la region de captacion del hospital en un momento dado
+
+# Chart labels
+day: Dia
+date: Fecha
+susceptible: Susceptible
+infected: Infectado
+recovered: Recuperado
