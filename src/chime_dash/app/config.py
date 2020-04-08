@@ -13,8 +13,8 @@ class Base:
 
     root = str(_entrypoint.parent)
     debug = False
-    LANG = "en"
-    CHIME_TITLE = "Penn Medicine CHIME"
+    LANG = "es"
+    CHIME_TITLE = "CHIME"
 
 
 class Development(Base):
