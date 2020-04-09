@@ -17,12 +17,12 @@ PennMedicineWebMaster@uphs.upenn.edu
 }
 
 .cepobia-header__logo {
-	background-image: url(https://cepobia.com/assets/images/logos/logodark.png);
+	background-image: url(https://cepobia.com/assets/images/logos/Biapp-Covid.png);
 	background-repeat: no-repeat;
 	background-size: 90%;
 	display: block;
-	height: 60px;
-	width: 150px;
+	height: 65px;
+	width: 200px;
 	text-indent: -999999px;
 	margin-bottom: -2px;
 }

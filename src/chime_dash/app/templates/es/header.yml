@@ -1,2 +1,7 @@
 title: "Biapp: Modelo de Impacto Hospitalario del COVID-19"
-description: "*Esta herramienta fue desarrollada por el [Predictive Healthcare team](http://predictivehealthcare.pennmedicine.org/) y adaptada por [Cepobia](https://cepobia.com/) para ayudar a hospitales y funcionarios de salud publica con la planificacion de la capacidad hospitalaria. Personalicelo para su region modificando las entradas en el panel izquierdo*"
+description: "
+* **Info Herramienta**: Esta [Biapp](https://cepobia.com/BIaaS/) fue desarrollada por [Cepobia](https://cepobia.com/) y se basa en el trabajo puesto a disposición de forma gratuita (bajo licencia MIT) por Penn Medicine  [Predictive Healthcare team](http://predictivehealthcare.pennmedicine.org/). Para ayudar a hospitales y funcionarios de salud publica con la planificacion de la capacidad hospitalaria. 
+
+* **Personalizar**: En el panel izquierdo modifique las entradas de acuerdo a los datos de su hospital y/o region para obtener una proyeccion de su hospital y/o region .
+
+* **Aviso:** Existe un alto grado de incertidumbre sobre los detalles de la infeccion, transmision y la efectividad de las medidas de distanciamiento social de COVID-19. Las proyecciones a largo plazo realizadas con este modelo simplificado de progresion del brote deben tratarse con extrema precaucion."

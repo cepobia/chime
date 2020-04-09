@@ -18,7 +18,7 @@ class Navbar(Component):
     TODO refactor / design input on style and layout
     """
 
-    def __init__(self, language: str = "en", defaults: Parameters = None):
+    def __init__(self, language: str = "es", defaults: Parameters = None):
         """Sets up self, menu and header
         """
         super().__init__(language, defaults=defaults)

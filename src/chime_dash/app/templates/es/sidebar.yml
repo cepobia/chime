@@ -17,7 +17,7 @@ hospitalized_los: Estancia promedio de la hospitalizacion (en dias)
 icu_los: Promedio de dias en UCI
 ventilated_los: Promedio de dias en ventilador
 
-display_parameters: Parametros de viualizacion
+display_parameters: Parametros de visualizacion
 n_days: Número de dias para proyectar
 current_date: Fecha actual (el valor predeterminado es hoy)
 max_y_axis: Fije el eje Y en los gráficos 
