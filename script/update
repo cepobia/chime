@@ -7,8 +7,8 @@ cd "$(dirname "$0")/.."
 
 
 script/bootstrap
-script/-check-docker-compose
+script/-check-docker-compose-dash
 
 echo
 echo "==> Rebuilding containers…"
-docker-compose up -d --build
+docker-compose-dash up -d --build

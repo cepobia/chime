@@ -14,7 +14,7 @@ class Base:
     root = str(_entrypoint.parent)
     debug = False
     LANG = "es"
-    CHIME_TITLE = "CHIME"
+    CHIME_TITLE = "Biapp"
 
 
 class Development(Base):

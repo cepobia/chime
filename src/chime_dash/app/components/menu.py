@@ -18,22 +18,22 @@ class Menu(Component):
     def get_html(self) -> List[ComponentMeta]:
         menu = dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("Penn Medicine", header=True),
+                dbc.DropdownMenuItem("cepobia", header=True),
                 dbc.DropdownMenuItem(
-                    "Predictive Healthcare",
-                    href="http://predictivehealthcare.pennmedicine.org/",
+                    "Covid en Colombia",
+                    href="https://cepobia.com/covid19/",
                     external_link=True,
                     target="_blank",
                 ),
                 dbc.DropdownMenuItem(
-                    "How to Use CHIME",
+                    "Como Usar CHIME",
                     href="https://code-for-philly.gitbook.io/chime/",
                     external_link=True,
                     target="_blank",
                 ),
             ],
             in_navbar=True,
-            label="Learn More",
+            label="Mas Info",
             color="light",
             right=True
         )

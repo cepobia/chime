@@ -1,6 +1,6 @@
 ## Orientacion sobre la seleccion de entradas
 
-**Esta información se ha trasladado a [Docuemntacion del Usuario](https://code-for-philly.gitbook.io/chime/what-is-chime/parameters#guidance-on-selecting-inputs)**
+**Esta información se ha trasladado a [Documentacion del Usuario](https://code-for-philly.gitbook.io/chime/what-is-chime/parameters#guidance-on-selecting-inputs)**
 
 ## Referencias y Agradecimientos
 

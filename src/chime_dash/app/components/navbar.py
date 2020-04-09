@@ -28,7 +28,7 @@ class Navbar(Component):
         """Initialize the navigation bar
         """
         nav = dbc.Navbar(
-            className="penn-medicine-header px-0",
+            className="cepobia-header px-0",
             children=html.Div(
                 className="d-flex align-items-center w-100",
                 children=[
@@ -36,9 +36,9 @@ class Navbar(Component):
                         className="px-3",
                         style={"width": "320px"},
                         children=html.A(
-                            href="https://www.pennmedicine.org",
-                            className="penn-medicine-header__logo",
-                            title="Go to the Penn Medicine home page",
+                            href="https://cepobia.com/",
+                            className="cepobia-header__logo",
+                            title="ir al home page de cepobia",
                         ),
                     ),
                     html.Div(
@@ -47,7 +47,7 @@ class Navbar(Component):
                             children=[dbc.NavbarBrand(
                                 children=html.H1(
                                     style={"font": "inherit", "margin": "0"},
-                                    children="COVID-19 Hospital Impact Model for Epidemics (CHIME)"
+                                    children=" Modelo de Impacto Hospitalario de Covid-19 (CHIME)"
                                 ),
                                 href="/"
                             )] + self.menu.html
