@@ -11,4 +11,4 @@ script/-check-docker-compose
 
 echo
 echo "==> Rebuilding containers…"
-docker-compose up -d --build
+docker-compose -f docker-compose-dash.yml up -d --build

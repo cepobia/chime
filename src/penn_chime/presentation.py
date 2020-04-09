@@ -46,7 +46,7 @@ def display_header(st, m, p):
 <div class="penn-medicine-header__content">
     <a href="https://www.pennmedicine.org" class="penn-medicine-header__logo"
         title="Go to the Penn Medicine home page">Penn Medicine</a>
-    <a id="title" class="penn-medicine-header__title">COVID-19 Hospital Impact Model for Epidemics (CHIME)</a>
+    <a id="title" class="penn-medicine-header__title">Modelo Impacto Hospitalario (CHIME)</a>
 </div>
     """,
         unsafe_allow_html=True,
