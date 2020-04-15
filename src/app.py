@@ -32,8 +32,8 @@ m = SimSirModel(p)
 
 display_header(st, m, p)
 
-st.subheader("New Admissions")
-st.markdown("Projected number of **daily** COVID-19 admissions.")
+st.subheader("Nuevas Admisiones")
+st.markdown("Número proyectado de admisiones ** COVID-19 ** diarias.")
 admits_chart = build_admits_chart(alt=alt, admits_floor_df=m.admits_floor_df, max_y_axis=p.max_y_axis)
 st.altair_chart(admits_chart, use_container_width=True)
 display_download_link(
@@ -42,8 +42,8 @@ display_download_link(
     df=m.admits_df,
 )
 
-st.subheader("Admitted Patients (Census)")
-st.markdown("Projected **census** of COVID-19 patients, accounting for arrivals and discharges.")
+st.subheader("Pacientes admitidos (Censo)")
+st.markdown("Proyectado ** censo ** de pacientes con COVID-19, contabilizando llegadas y altas.")
 census_chart = build_census_chart(alt=alt, census_floor_df=m.census_floor_df, max_y_axis=p.max_y_axis)
 st.altair_chart(census_chart, use_container_width=True)
 display_download_link(
@@ -52,8 +52,8 @@ display_download_link(
     df=m.census_df,
 )
 
-st.subheader("Susceptible, Infected, and Recovered")
-st.markdown("The number of susceptible, infected, and recovered individuals in the hospital catchment region at any given moment")
+st.subheader("Susceptible, infectado y recuperado")
+st.markdown("El número de individuos susceptibles, infectados y recuperados en la región de captación del hospital en un momento dado")
 sim_sir_w_date_chart = build_sim_sir_w_date_chart(alt=alt, sim_sir_w_date_floor_df=m.sim_sir_w_date_floor_df)
 st.altair_chart(sim_sir_w_date_chart, use_container_width=True)
 display_download_link(

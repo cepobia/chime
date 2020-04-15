@@ -37,7 +37,7 @@ hide_menu_style = """
 def display_header(st, m, p):
 
     infected_population_warning_str = (
-        """(Warning: The number of estimated infections is greater than the total regional population. Please verify the values entered in the sidebar.)"""
+        """(Advertencia: El número de infecciones estimadas es mayor que la población regional total. Verifique los valores ingresados en la barra lateral.)"""
         if m.infected > p.population
         else ""
     )
@@ -46,38 +46,35 @@ def display_header(st, m, p):
         """
 <link rel="stylesheet" href="https://www1.pennmedicine.org/styles/shared/penn-medicine-header.css">
 <div class="penn-medicine-header__content">
-    <a href="https://www.pennmedicine.org" class="penn-medicine-header__logo"
-        title="Go to the Penn Medicine home page">Penn Medicine</a>
-    <a id="title" class="penn-medicine-header__title">Modelo Impacto Hospitalario (CHIME)</a>
+    <img src="https://cepobia.com/assets/images/logos/simbolo.png"  alt="cepobia" style="width:30px;height:30px;">
+    <a id="title" class="penn-medicine-header__title">Biapp - Modelo Impacto Hospitalario (CHIME)</a>
 </div>
     """,
         unsafe_allow_html=True,
     )
     st.markdown(
-        """**Notice**: *There is a high
-degree of uncertainty about the details of COVID-19 infection, transmission, and the effectiveness of social distancing
-measures. Long-term projections made using this simplified model of outbreak progression should be treated with extreme caution.*
+        """**Aviso**: *Existe un alto grado de incertidumbre sobre los detalles de la infección, transmisión 
+        y la efectividad de las medidas de distanciamiento social de COVID-19. Las proyecciones a largo plazo
+         realizadas con este modelo simplificado de progresión del brote deben tratarse con extrema precaución.*
     """
     )
     st.markdown(
         """
-This tool was developed by [Predictive Healthcare](http://predictivehealthcare.pennmedicine.org/) at
-Penn Medicine to assist hospitals and public health officials with hospital capacity planning.
-Please read [How to Use CHIME]({docs_url}) to customize inputs for your region.""".format(docs_url=DOCS_URL))
-
+            Esta [Biapp](https://cepobia.com/BIaaS/) fue desarrollada por [Cepobia](https://cepobia.com/) y 
+            se basa en el trabajo puesto a disposición de forma gratuita (bajo licencia MIT) por Penn Medicine [Predictive Healthcare team](http://predictivehealthcare.pennmedicine.org/).
+            Para ayudar a hospitales y funcionarios de salud publica con la planificacion de la capacidad hospitalaria"""
+    )
     st.markdown(
-        """The estimated number of currently infected individuals is **{total_infections:.0f}**. This is based on current inputs for
-    Hospitalizations (**{current_hosp}**), Hospitalization rate (**{hosp_rate:.0%}**), Regional population (**{S}**),
-    and Hospital market share (**{market_share:.0%}**).
-
+        """ # Resultados
+El numero estimado de individuos actualmente infectados es de **{total_infections:.0f}**. Esto se basa en las entradas actuales para hospitalizaciones. (**{current_hosp}**), Tasa de hospitalizacion (**{hosp_rate:.0%}**), Poblacion regional (**{S}**),
+y cuota de mercado del hospital (**{market_share:.0%}**).
 {infected_population_warning_str}
 
-An initial doubling time of **{doubling_time}** days and a recovery time of **{recovery_days}** days imply an $R_0$ of
- **{r_naught:.2f}** and daily growth rate of **{daily_growth:.2f}%**.
+Un tiempo de duplicacion inicial de **{doubling_time}** dias y un tiempo de recuperacion de **{recovery_days}** dias que implican un **`R0`** de
+**{r_naught:.2f}** y tasa de crecimiento diario de **{daily_growth:.2f}%**.
 
-**Mitigation**: A **{relative_contact_rate:.0%}** reduction in social contact after the onset of the
-outbreak **{impact_statement:s} {doubling_time_t:.1f}** days, implying an effective $R_t$ of **${r_t:.2f}$**
-and daily growth rate of **{daily_growth_t:.2f}%**.
+**Mitigación**: Una reduccion del **{relative_contact_rate:.0%}**  en el contacto social despues del inicio del brote **{impact_statement:s} {doubling_time_t:.1f}** dias, lo que implica un efectivo **`R(t)`** de **{r_t:.2f}**
+y una tasa de crecimiento diario de **{daily_growth_t:.2f}%**.
 """.format(
             total_infections=m.infected,
             current_hosp=p.current_hospitalized,
@@ -178,7 +175,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
 
     current_hospitalized_input = NumberInput(
         st_obj,
-        "Currently hospitalized COVID-19 patients",
+        " Pacientes Actualmente Hospitalizados con Covid-19",
         min_value=0,
         value=d.current_hospitalized,
         step=1,
@@ -186,7 +183,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
     n_days_input = NumberInput(
         st_obj,
-        "Number of days to project",
+        "Número de dias para proyectar",
         min_value=30,
         value=d.n_days,
         step=1,
@@ -194,26 +191,26 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
     doubling_time_input = NumberInput(
         st_obj,
-        "Doubling time in days (up to today)",
+        "Tiempo de duplicacion en dias (hasta hoy. Esto sobrescribe la fecha de la primera estimacion hospitalizada)",
         min_value=0.5,
         value=d.doubling_time,
         step=0.25,
         format="%f",
     )
     current_date_input = DateInput(
-        st_obj, "Current date (default is today)", value=d.current_date,
+        st_obj, "Fecha actual (el valor predeterminado es hoy)", value=d.current_date,
     )
     date_first_hospitalized_input = DateInput(
-        st_obj, "Date of first hospitalized case (enter this date to have CHIME estimate the initial doubling time)",
+        st_obj, "Fecha del primer caso hospitalizado (ingrese esta fecha para que CHIME calculé el tiempo de duplicación inicial)",
         value=d.date_first_hospitalized,
     )
     mitigation_date_input = DateInput(
-        st_obj, "Date of social distancing measures effect (may be delayed from implementation)",
+        st_obj, "Fecha de efecto de las medidas de distanciamiento social (puede retrasarse su implementación)",
         value=d.mitigation_date
     )
     relative_contact_pct_input = PercentInput(
         st_obj,
-        "Social distancing (% reduction in social contact going forward)",
+        "Distanciamiento social (% de reducción en el contacto social en el futuro)",
         min_value=0.0,
         max_value=100.0,
         value=d.relative_contact_rate,
@@ -221,23 +218,23 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
     hospitalized_pct_input = PercentInput(
         st_obj,
-        "Hospitalization %(total infections)",
+        "Tasa de hospitalización (% del total de infecciones)",
         value=d.hospitalized.rate,
         min_value=FLOAT_INPUT_MIN,
         max_value=100.0
     )
     icu_pct_input = PercentInput(st_obj,
-        "ICU %(total infections)",
+        "Tasa UCI (% del total de infecciones)",
         min_value=0.0,
         value=d.icu.rate,
         step=0.05
     )
     ventilated_pct_input = PercentInput(
-        st_obj, "Ventilated %(total infections)", value=d.ventilated.rate,
+        st_obj, "Tasa Ventilados (% del total de infecciones)", value=d.ventilated.rate,
     )
     hospitalized_days_input = NumberInput(
         st_obj,
-        "Average hospital length of stay (in days)",
+        "Estancia promedio de la hospitalización (en dias)",
         min_value=1,
         value=d.hospitalized.days,
         step=1,
@@ -245,7 +242,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
     icu_days_input = NumberInput(
         st_obj,
-        "Average days in ICU",
+        "Promedio de dias en UCI",
         min_value=1,
         value=d.icu.days,
         step=1,
@@ -253,7 +250,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
     ventilated_days_input = NumberInput(
         st_obj,
-        "Average days on ventilator",
+        "Promedio de dias con ventilación",
         min_value=1,
         value=d.ventilated.days,
         step=1,
@@ -261,13 +258,13 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
     market_share_pct_input = PercentInput(
         st_obj,
-        "Hospital market share (%)",
+        "Mercado del Hospital (%)",
         min_value=0.5,
         value=d.market_share,
     )
     population_input = NumberInput(
         st_obj,
-        "Regional population",
+        "Población Ciudad",
         min_value=1,
         value=(d.population),
         step=1,
@@ -275,17 +272,17 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
     infectious_days_input = NumberInput(
         st_obj,
-        "Infectious days",
+        "Dias infecciosos",
         min_value=1,
         value=d.infectious_days,
         step=1,
         format="%i",
     )
     max_y_axis_set_input = CheckboxInput(
-        st_obj, "Set the Y-axis on graphs to a static value"
+        st_obj, "Fije el eje Y en los gráficos"
     )
     max_y_axis_input = NumberInput(
-        st_obj, "Y-axis static value", value=500, format="%i", step=25
+        st_obj, "Valor estático del eje Y", value=500, format="%i", step=25
     )
 
     # Build in desired order
@@ -297,7 +294,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     )
 
     st.sidebar.markdown(
-        "### Hospital Parameters [ℹ]({docs_url}/what-is-chime/parameters#hospital-parameters)".format(
+        "### Parámetros del Hospital [ℹ]({docs_url}/what-is-chime/parameters#hospital-parameters)".format(
             docs_url=DOCS_URL
         )
     )
@@ -307,13 +304,13 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     current_hospitalized = current_hospitalized_input()
 
     st.sidebar.markdown(
-        "### Spread and Contact Parameters [ℹ]({docs_url}/what-is-chime/parameters#spread-and-contact-parameters)".format(
+        "### Parámetros de propagación y contacto [ℹ]({docs_url}/what-is-chime/parameters#spread-and-contact-parameters)".format(
             docs_url=DOCS_URL
         )
     )
 
     if st.sidebar.checkbox(
-        "I know the date of the first hospitalized case."
+        "Sé la fecha del primer caso hospitalizado."
     ):
         date_first_hospitalized = date_first_hospitalized_input()
         doubling_time = None
@@ -322,7 +319,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
         date_first_hospitalized = None
 
     if st.sidebar.checkbox(
-        "Social distancing measures have been implemented",
+        "Se han implementado medidas de distanciamiento social.",
         value=(d.relative_contact_rate > EPSILON)
     ):
         mitigation_date = mitigation_date_input()
@@ -332,7 +329,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
         relative_contact_rate = EPSILON
 
     st.sidebar.markdown(
-        "### Severity Parameters [ℹ]({docs_url}/what-is-chime/parameters#severity-parameters)".format(
+        "### Parámetros de Severidad[ℹ]({docs_url}/what-is-chime/parameters#severity-parameters)".format(
             docs_url=DOCS_URL
         )
     )
@@ -345,7 +342,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
     ventilated_days = ventilated_days_input()
 
     st.sidebar.markdown(
-        "### Display Parameters [ℹ]({docs_url}/what-is-chime/parameters#display-parameters)".format(
+        "### Parámetros de Visualización [ℹ]({docs_url}/what-is-chime/parameters#display-parameters)".format(
             docs_url=DOCS_URL
         )
     )
@@ -358,7 +355,7 @@ def display_sidebar(st, d: Parameters) -> Parameters:
 
     current_date = current_date_input()
     #Subscribe implementation
-    subscribe(st_obj)
+    #subscribe(st_obj)
 
     return Parameters(
         current_hospitalized=current_hospitalized,
@@ -446,14 +443,12 @@ def send_subscription_to_google_sheet(st_obj, row):
     spr.writeToSheet("CHIME Form Submissions", row)
 
 def display_footer(st):
-    st.subheader("References & Acknowledgements")
+    st.subheader("Agradecimientos")
     st.markdown(
-        """* AHA Webinar, Feb 26, James Lawler, MD, an associate professor University of Nebraska Medical Center, What Healthcare Leaders Need To Know: Preparing for the COVID-19
-* We would like to recognize the valuable assistance in consultation and review of model assumptions by Michael Z. Levy, PhD, Associate Professor of Epidemiology, Department of Biostatistics, Epidemiology and Informatics at the Perelman School of Medicine
-* Finally we'd like to thank [Code for Philly](https://codeforphilly.org/) and the many members of the open-source community that [contributed](https://github.com/CodeForPhilly/chime/graphs/contributors) to this project.
+        """* Nos gustaria agradecer [Code for Philly](https://codeforphilly.org/) y los muchos miembros de la comunidad de codigo abierto que [contribuyeron](https://github.com/CodeForPhilly/chime/graphs/contributors) en este Proyecto.
     """
     )
-    st.markdown("© 2020, The Trustees of the University of Pennsylvania")
+    st.markdown("© 2020, CepoBIA")
 
 
 def display_download_link(st, filename: str, df: pd.DataFrame):

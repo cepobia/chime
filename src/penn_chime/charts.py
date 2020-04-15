@@ -26,7 +26,7 @@ def build_admits_chart(
     # TODO fix the fold to allow any number of dispositions
     points = (
         alt.Chart()
-        .transform_fold(fold=["admits_hospitalizados", "admits_uci", "admits_ventilated"])
+        .transform_fold(fold=["admits_hospitalized", "admits_icu", "admits_ventilated"])
         .encode(x=alt.X(**x), y=alt.Y(**y), color=color, tooltip=tooltip)
         .mark_line(point=True)
         .encode(
